@@ -9,13 +9,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+        <activity android:name=".activities.MainActivity"
+            android:label="@string/main_activity_label">
+
+            <intent-filter>
+                <!--这里配置MainActivity为启动活动-->
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <!--SecondActivity隐式的使用Intent启动MainActivity，事实上action和category中String可以随意填写-->
+                <!--但为了方便识别还是采用“包名+类型”的方式，尽管很长但容易识别-->
+                <action android:name="com.example.zacharywu.exploreactivity.ACTION_START" />
+                <!-- startActivity会添加一个默认的category到Intent中，当使用隐式Intent的用法的时候，DEFAULT这句是必须的，显式则不需要任何代码-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.zacharywu.exploreactivity.START_MAIN_ACTIVITY_CATEGROY" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activities.SecondActivity"
+            android:label="@string/second_activity_label">
+            <intent-filter>
+                <action android:name="com.example.zacharywu.exploreactivity.ACTION_START" />
+                <!-- startActivity会添加一个默认的category到Intent中，所以DEFAULT这句是必须的 -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.zacharywu.exploreactivity.START_SECOND_ACTIVITY_CATEGROY" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.MyHTTPActivity"
+            android:label="@string/my_http_activity_label">
+            <!--data标签可以更加准确的指定当前活动能够响应什么类型的数据。-->
+            <!--android：scheme->指定协议部分，如http-->
+            <!--android：host->指定数据的主机部分，如www.baidu.com-->
+            <!--android:port->指定数据的端口部分，一般紧跟在主机名后面-->
+            <!--android:mineType->用于指定可以处理数据的数据类型，允许使用通配符的方式进行指定-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

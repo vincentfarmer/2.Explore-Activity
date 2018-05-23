@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ExploreActivity</string>
+
+    <!--SecondActivity中用到的字符串-->
+    <string name="second_activity_label">SecondActivity</string>
+    <string name="to_second_activity">to_second_activity</string>
+    <string name="to_baidu_activity">to_baidu_activity</string>
+    <string name="to_dial_activity">to_dial_activity</string>
+    to_dial_activity
+
+    <!--MainActivity中用到的字符串-->
+    <string name="to_main_activity">to_main_activity</string>
+    <string name="main_activity_label">MainActivity</string>
+
+    <!--MyHTTPActivity中用到的字符串-->
+    <string name="my_http_activity_label">MyHTTPActivity</string>
 </resources>
