@@ -28,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
      * Button toSecondActivityButton=>to_second_activity
      * Button toBaiduActivityButton =>to_baidu_activity
      * Button toDialActivity=>to_dial_activity
+     * startMainLifeCycleActivity=>start_main_life_cycle_activity
      */
-    Button toSecondActivityButton;
-    Button toBaiduActivityButton;
-    Button toDialActivityButton;
-
+    Button startSecondActivityButton;
+    Button startBaiduActivityButton;
+    Button startDialActivityButton;
+    Button startMainLifeCycleActivityButton;
     /**
      * 活动的七大声明状态之一，初始化启动活动时执行的方法，功能是实例化布局文件和相应的逻辑功能
      * @param savedInstanceState
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
      * 初始化活动，主要是为按钮添加点击事件
      */
     public void initActivity(){
-        //实例化控件to_second_activity为toSecondActivityButton对象并设置点击事件
-        toSecondActivityButton = findViewById(R.id.to_second_activity);
-        toSecondActivityButton.setOnClickListener(new View.OnClickListener() {
+        //实例化控件start_second_activity为startSecondActivityButton对象并设置点击事件
+        startSecondActivityButton = findViewById(R.id.start_second_activity);
+        startSecondActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //使用Intent的隐式用法，先指定action参数，再使用addCategory()方法指定Category参数
@@ -65,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //实例化to_baidu_activity控件为toBaiduActivityButton对象并设置点击事件
-        toBaiduActivityButton = findViewById(R.id.to_baidu_activity);
-        toBaiduActivityButton.setOnClickListener(new View.OnClickListener() {
+        //实例化start_baidu_activity控件为startBaiduActivityButton对象并设置点击事件
+        startBaiduActivityButton = findViewById(R.id.start_baidu_activity);
+        startBaiduActivityButton.setOnClickListener(new View.OnClickListener() {
             //使用Intent的隐式用法，先指定action参数，再使用addCategory()方法指定Category参数,其中ACTION_VIEW是Android系统内置浏览器的action.
             // 常量值为android.intent.action.VIEW
             //setData()方法接受一个Uri对象，这个对象通常是使用Uri.parse()方法解析得到的
@@ -79,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //实例化to_dial_activity控件为toDialActivityButton对象并设置点击事件
-        toDialActivityButton = findViewById(R.id.to_dial_activity);
-        toDialActivityButton.setOnClickListener(new View.OnClickListener() {
+        //实例化start_dial_activity控件为startDialActivityButton对象并设置点击事件
+        startDialActivityButton = findViewById(R.id.start_dial_activity);
+        startDialActivityButton.setOnClickListener(new View.OnClickListener() {
             //使用Intent的隐式用法，先指定action参数，再使用addCategory()方法指定Category参数,其中ACTION_DIAL是Android系统内置浏览器的action.
             // 常量值为android.intent.action.DIAL
             //setData()方法接受一个Uri对象，这个对象通常是使用Uri.parse()方法解析得到的
@@ -89,6 +90,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:10086"));
+                startActivity(intent);
+            }
+        });
+        //实例化start_dial_activity控件为startMainLifeCycleActivity对象并设置点击事件
+        startMainLifeCycleActivityButton = findViewById(R.id.start_main_life_cycle_activity);
+        startMainLifeCycleActivityButton.setOnClickListener(new View.OnClickListener() {
+            //使用Intent的隐式用法，先指定action参数，再使用addCategory()方法指定Category参数,其中ACTION_DIAL是Android系统内置浏览器的action.
+            // 常量值为android.intent.action.DIAL
+            //setData()方法接受一个Uri对象，这个对象通常是使用Uri.parse()方法解析得到的
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.example.zacharywu.exploreactivity.ACTION_START");
+                intent.addCategory("com.example.zacharywu.exploreactivity.START_MAIN_LIFE_CYCLE_ACTIVITY_CATEGROY");
                 startActivity(intent);
             }
         });

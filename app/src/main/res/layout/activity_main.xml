@@ -9,22 +9,27 @@
     tools:context=".activities.MainActivity">
 
     <Button
-        android:id="@+id/to_second_activity"
+        android:id="@+id/start_second_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/to_second_activity"/>
+        android:text="@string/start_second_activity"/>
 
     <Button
-        android:id="@+id/to_baidu_activity"
+        android:id="@+id/start_baidu_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/to_baidu_activity"/>
+        android:text="@string/start_baidu_activity"/>
 
     <Button
-        android:id="@+id/to_dial_activity"
+        android:id="@+id/start_dial_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/to_dial_activity"/>
+        android:text="@string/start_dial_activity"/>
+    <Button
+        android:id="@+id/start_main_life_cycle_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_main_life_cycle_activity"/>
 </LinearLayout>
 
 
