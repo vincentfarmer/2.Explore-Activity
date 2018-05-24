@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.zacharywu.exploreactivity.R;
 
-public class NormalActivity extends AppCompatActivity {
+public class NormalActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

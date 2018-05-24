@@ -1,31 +1,36 @@
 <resources>
     <string name="app_name">ExploreActivity</string>
 
-    <!--SecondActivity中用到的字符串-->
-    <string name="second_activity_label">SecondActivity</string>
+    <!--MainActivity中用到的字符串-->
+    <string name="main_activity_label">MainActivity</string>
     <string name="start_second_activity">start_second_activity</string>
     <string name="start_baidu_activity">start_baidu_activity</string>
     <string name="start_dial_activity">start_dial_activity</string>
-    to_dial_activity
-
-    <!--MainActivity中用到的字符串-->
-    <string name="start_main_activity">start_main_activity</string>
-    <string name="main_activity_label">MainActivity</string>
     <string name="start_main_life_cycle_activity">start_main_life_cycle_activity</string>
+    <string name="start_self_main_activity">start_self_main_activity</string>
+    <!--<string name="start_main_activity_single_top">start_main_activity_single_top</string>-->
+    <!--<string name="start_main_activity_single_task">start_main_activity_single_task</string>-->
+    <!--<string name="start_main_activity_single_instance">start_main_activity_single_instance</string>-->
+
+    <!--SecondActivity中用到的字符串-->
+    <string name="second_activity_label">SecondActivity</string>
+    <string name="start_main_activity">start_main_activity</string>
+    <string name="return_main_activity">return_main_activity</string>
+    <string name="start_my_http_activity">start_my_http_activity</string>
 
     <!--MyHTTPActivity中用到的字符串-->
     <string name="my_http_activity_label">MyHTTPActivity</string>
-
-
 
     <!--MainLifeCycleActivity中用到的字符串-->
     <string name="start_normal_activity">start_normal_activity</string>
     <string name="start_dialog_activity">start_dialog_activity</string>
     <string name="main_life_cycle_activity_label">MainLifeCycleActivity</string>
+    <string name="edit_text">edit_text</string>
 
     <!--NormalActivity中要用到的字符串-->
     <string name="normal_activity_label">NormalActivity</string>
 
     <!--DialogActivity中要用到的字符串-->
-    <string name="dialog_activity_label">DialogActivity</string>
+    <string name="dialog_activity_label">DialogActivity</string>exit_app
+    <string name="exit_app">exit_app</string>
 </resources>

@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--这里我发现主活动名会覆盖app名，目前未找到原因-->
+        <!--这里修改启动模式文singlTop在不同的模式测试中需要修改这里-->
         <activity
             android:name=".activities.MainActivity"
+
             android:label="@string/main_activity_label">
             <intent-filter>
-
                 <!-- 这里配置MainActivity为启动活动 -->
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <!-- SecondActivity隐式的使用Intent启动MainActivity，事实上action和category中String可以随意填写 -->
@@ -27,6 +29,7 @@
                 <category android:name="com.example.zacharywu.exploreactivity.START_MAIN_ACTIVITY_CATEGROY" />
             </intent-filter>
         </activity>
+        <!--这里的singleInstance模式的实验结果更接近是此活动开启的子活动会放在一个性的Task返回栈中，而不是书上描述的是本活动放在一个新的Task返回栈，而且实验结果也更符合逻辑和用法-->
         <activity
             android:name=".activities.SecondActivity"
             android:label="@string/second_activity_label">

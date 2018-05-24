@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.zacharywu.exploreactivity.R;
 
-public class DialogActivity extends AppCompatActivity {
+public class DialogActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

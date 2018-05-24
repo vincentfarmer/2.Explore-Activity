@@ -17,7 +17,7 @@ import com.example.zacharywu.exploreactivity.R;
  *      startActivity(intent);
  *
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     /**
      * 声明所有的本活动对应布局文件中的控件,实例名与控件名的对应关系为：
@@ -25,15 +25,18 @@ public class MainActivity extends AppCompatActivity {
      * 实例名是控件名去除掉下划线后使用java的驼峰法命名
      *
      * 对应关系表为
-     * Button toSecondActivityButton=>to_second_activity
-     * Button toBaiduActivityButton =>to_baidu_activity
-     * Button toDialActivity=>to_dial_activity
-     * startMainLifeCycleActivity=>start_main_life_cycle_activity
+     * Button startSelfMainActivityButton=>start_self_main_activity
+     * Button startSecondActivityButton=>start_second_activity
+     * Button toBaiduActivityButton =>start_baidu_activity
+     * Button startDialActivityButton=>start_dial_activity
+     * Button startMainLifeCycleActivityButton=>start_main_life_cycle_activity
      */
+    Button startSelfMainActivityButton;
     Button startSecondActivityButton;
     Button startBaiduActivityButton;
     Button startDialActivityButton;
     Button startMainLifeCycleActivityButton;
+
     /**
      * 活动的七大声明状态之一，初始化启动活动时执行的方法，功能是实例化布局文件和相应的逻辑功能
      * @param savedInstanceState
@@ -43,12 +46,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initActivity();
+
+
     }
 
     /**
      * 初始化活动，主要是为按钮添加点击事件
      */
     public void initActivity(){
+
+        //Standard:从这里打印的信息可以看出Standard模式不会在乎这个活动在返回栈中是否存在，每次启动都会创建该活动的一个实例
+        //singleTop:在AndroidMainfest中修改主活动的启动方式为singleTop之后无论点击多少次start_main_activity按钮都不会创建新的活动，而且只需要一次返回键就可以退出应用
+        //但是从mainActivity进入second Activity之后在打开mainActivity就可以重新启动一个新的mainActivity，简单来说singleTop只检查栈顶是否由同名活动而不检查栈中
+        //singleTask:singleTask模式下开启的活动如果在返回栈中存在则会将要开启的活动上的所有活动弹出销毁，直接激活想要打开的活动
+        //singleInstance:singleInstance模式较为复杂，指定为singleInstance的活动会启用一个新的返回栈来管理这个活动，这种模式下会有一个单独的返回栈来管理这个指定的活动
+        //不管用哪一个应用程序来访问这一个活动，都共用同一个返回栈Task，这样就觉觉了实力共享的问题
+        Log.d("MainActivity",MainActivity.this.toString());
+        Log.d("MainActivity","Task id is " + getTaskId());
+
+        //实例化控件start_main_activity为startMainActivityButton对象并设置点击事件
+        startSelfMainActivityButton = findViewById(R.id.start_self_main_activity);
+        startSelfMainActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //使用Intent的隐式用法，先指定action参数，再使用addCategory()方法指定Category参数
+                Intent intent = new Intent("com.example.zacharywu.exploreactivity.ACTION_START");
+                intent.addCategory("com.example.zacharywu.exploreactivity.START_MAIN_ACTIVITY_CATEGROY");
+                startActivity(intent);
+            }
+        });
+
         //实例化控件start_second_activity为startSecondActivityButton对象并设置点击事件
         startSecondActivityButton = findViewById(R.id.start_second_activity);
         startSecondActivityButton.setOnClickListener(new View.OnClickListener() {
